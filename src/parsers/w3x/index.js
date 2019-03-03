@@ -18,7 +18,31 @@ import wts from './wts';
 import unitsdoo from './unitsdoo';
 import w3f from './w3f';
 
-export default {
+Object.assign(Map, {
+  Map,
+  doo,
+  imp,
+  mmp,
+  shd,
+  w3c,
+  w3d,
+  w3e,
+  w3i,
+  w3o,
+  w3r,
+  w3s,
+  w3u,
+  wct,
+  wpm,
+  wtg,
+  wts,
+  unitsdoo,
+  w3f,
+});
+
+export default Map;
+
+export {
   Map,
   doo,
   imp,

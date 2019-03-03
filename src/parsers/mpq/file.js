@@ -1,4 +1,4 @@
-import {inflate, deflate} from 'pako';
+import {inflate, deflate} from 'pako-es';
 import {bufferToString} from '../../common/stringtobuffer';
 import {HASH_ENTRY_DELETED, FILE_COMPRESSED, FILE_ENCRYPTED, FILE_OFFSET_ADJUSTED_KEY, FILE_SINGLE_UNIT, FILE_EXISTS, COMPRESSION_HUFFMAN, COMPRESSION_DEFLATE, COMPRESSION_IMPLODE, COMPRESSION_BZIP2, COMPRESSION_ADPCM_MONO, COMPRESSION_ADPCM_STEREO} from './constants';
 import {isArchive} from './isarchive';

@@ -1,33 +1,35 @@
 {
-  "name": "mdx-m3-viewer",
-  "version": "4.5.12",
-  "description": "A browser WebGL model viewer. Mainly focused on models of the games Warcraft 3 and Starcraft 2.",
-  "main": "src/index.js",
+  "name": "w3x-parser",
+  "version": "1.0.0",
+  "description": "Forks depcreated mdx-m3-viewer for use as a w3x-parser.",
+  "main": "dist/bundle.mjs",
+  "module": "dist/bundle.mjs",
   "directories": {
     "example": "examples",
     "test": "tests"
   },
   "scripts": {
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+	"dist"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flowtsohg/mdx-m3-viewer.git"
+    "url": "git+https://github.com/voces/mdx-m3-viewer.git"
   },
   "author": "Chananya Freiman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/flowtsohg/mdx-m3-viewer/issues"
+    "url": "https://github.com/voces/mdx-m3-viewer/issues"
   },
-  "homepage": "https://github.com/flowtsohg/mdx-m3-viewer#readme",
-  "dependencies": {
-    "gl-matrix": "^2.6.1",
-    "pako": "^1.0.6",
-    "webpack": "^4.9.1",
-    "webpack-cli": "^2.1.4"
-  },
+  "homepage": "https://github.com/voces/mdx-m3-viewer#readme",
   "devDependencies": {
     "eslint": "^4.19.1",
-    "eslint-config-google": "^0.9.1"
+    "eslint-config-google": "^0.9.1",
+	"pako-es": "^1.0.9",
+    "rollup": "^1.4.0",
+    "rollup-plugin-node-resolve": "^4.0.1"
   }
 }
