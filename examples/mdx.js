@@ -1,27 +1,30 @@
+
+/* global ModelViewer, setupCamera, handlers */
+
 // Don't forget to check common.js for the library exports!
 
-let canvas = document.getElementById('canvas');
+const canvas = document.getElementById( "canvas" );
 
 canvas.width = 800;
 canvas.height = 600;
 
 // Create the viewer!
-let viewer = new ModelViewer.viewer.ModelViewer(canvas);
+const viewer = new ModelViewer.viewer.ModelViewer( canvas );
 
 // Create a new scene. Each scene has its own camera, and a list of things to render.
-let scene = viewer.addScene();
+const scene = viewer.addScene();
 
 // Check camera.js!
-setupCamera(scene);
+setupCamera( scene );
 
 // Events.
-viewer.on('loadstart', (target) => console.log(target));
-viewer.on('load', (target) => console.log(target));
-viewer.on('loadend', (target) => console.log(target));
-viewer.on('error', (target, error, reason) => console.log(target, error, reason));
+viewer.on( "loadstart", target => console.log( target ) );
+viewer.on( "load", target => console.log( target ) );
+viewer.on( "loadend", target => console.log( target ) );
+viewer.on( "error", ( target, error, reason ) => console.log( target, error, reason ) );
 
 // Add the MDX handler.
-viewer.addHandler(handlers.mdx);
+viewer.addHandler( handlers.mdx );
 
 // A path solver is used for every load call.
 // The purpose of a path solver is to transform local paths to either of 1) A server fetch, or 2) A local load.
@@ -32,47 +35,51 @@ viewer.addHandler(handlers.mdx);
 // Lastly, it says that this path is a server fetch.
 // If the solver returns anything false-like for the third element, there will be no server fetch, and src will be directly sent to the implementation.
 // This can be used if you want in-memory loads (e.g. see the W3x handler's path solver, which handles both server fetches and local loads for Warcraft 3 maps).
-function pathSolver(path) {
-  return ['resources/' + path, path.substr(path.lastIndexOf('.')), true];
+function pathSolver( path ) {
+
+	return [ "resources/" + path, path.substr( path.lastIndexOf( "." ) ), true ];
+
 }
 
 // Load our MDX model!
-let model = viewer.load('SmileyGW_004.mdx', pathSolver);
+const model = viewer.load( "SmileyGW_004.mdx", pathSolver );
 
 // Create an instance of this model.
-let instance = model.addInstance();
+const instance = model.addInstance();
 
 // Set the instance's scene.
 // Equivalent to scene.addInstance(instance)
-instance.setScene(scene);
+instance.setScene( scene );
 
 // Want to run the first animation.
 // -1 for static mode.
-instance.setSequence(1);
+instance.setSequence( 1 );
 
 // Tell the instance to loop animations forever.
 // This overrides the setting in the model itself.
-instance.setSequenceLoopMode(2);
+instance.setSequenceLoopMode( 2 );
 
 // Let's create another instance and do other stuff with it.
-let instance2 = model.addInstance();
-instance2.setScene(scene);
-instance2.setSequence(0);
-instance2.setSequenceLoopMode(2);
-instance2.move([100, 100, 0]);
-instance2.uniformScale(0.5);
+const instance2 = model.addInstance();
+instance2.setScene( scene );
+instance2.setSequence( 0 );
+instance2.setSequenceLoopMode( 2 );
+instance2.move( [ 100, 100, 0 ] );
+instance2.uniformScale( 0.5 );
 
 // And a third one.
-let instance3 = model.addInstance();
-instance3.setScene(scene);
-instance3.setSequence(2);
-instance3.setSequenceLoopMode(2);
-instance3.move([-100, -100, 0]);
+const instance3 = model.addInstance();
+instance3.setScene( scene );
+instance3.setSequence( 2 );
+instance3.setSequenceLoopMode( 2 );
+instance3.move( [ - 100, - 100, 0 ] );
 
 // The viewer has the update(), startFrame(), render(), and updateAndRender() functions.
 // Generally speaking, you will want a simple never ending loop like the one that follows, but who knows. The control is in your hands.
-(function step() {
-  requestAnimationFrame(step);
+( function step() {
 
-  viewer.updateAndRender();
-}());
+	requestAnimationFrame( step );
+
+	viewer.updateAndRender();
+
+}() );

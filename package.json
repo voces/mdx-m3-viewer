@@ -1,9 +1,9 @@
 {
   "name": "w3x-parser",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Forks depcreated mdx-m3-viewer for use as a w3x-parser.",
-  "main": "dist/bundle.mjs",
-  "module": "dist/bundle.mjs",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.js",
   "directories": {
     "example": "examples",
     "test": "tests"
@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-	"dist"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -26,9 +26,11 @@
   },
   "homepage": "https://github.com/voces/mdx-m3-viewer#readme",
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-google": "^0.9.1",
-	"pako-es": "^1.0.9",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-mdcs": "^4.2.3",
+    "eslint-config-verit": "^1.0.2",
+    "pako-es": "^1.0.9",
     "rollup": "^1.4.0",
     "rollup-plugin-node-resolve": "^4.0.1"
   }
