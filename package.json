@@ -33,5 +33,6 @@
     "pako-es": "^1.0.9",
     "rollup": "^1.4.0",
     "rollup-plugin-node-resolve": "^4.0.1"
-  }
+  },
+  "type": "module"
 }
